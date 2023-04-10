@@ -1,0 +1,41 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.10'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.lavulite.techpit.chat'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+  implementation 'com.bucket4j:bucket4j-core:8.1.1'
+  implementation 'org.springframework.retry:spring-retry:2.0.0'
+	implementation 'org.springframework.boot:spring-boot-starter-aop:2.7.1'
+  implementation 'mysql:mysql-connector-java:8.0.31'
+  implementation 'org.springframework.boot:spring-boot-starter-security:2.7.1'
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server:2.7.1'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc:2.7.1' // 2.7.1を指定
+	implementation 'org.springframework.boot:spring-boot-starter-web:2.7.1' // 2.7.1を指定
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2' // 2.2.2を指定
+	compileOnly 'org.projectlombok:lombok:1.18.24' // 1.18.24を指定
+	developmentOnly 'org.springframework.boot:spring-boot-devtools:2.7.1' // 2.7.1を指定
+	runtimeOnly 'com.h2database:h2:2.1.214' // 2.1.214を指定
+	annotationProcessor 'org.projectlombok:lombok:1.18.24' // 1.18.24を指定
+	testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.1'  // 2.7.1を指定
+  testImplementation 'org.dbunit:dbunit:2.7.3'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
